@@ -1,0 +1,76 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &5957314254777138906
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 907004085718806004}
+  - component: {fileID: 2634021901116189907}
+  m_Layer: 0
+  m_Name: SFXManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &907004085718806004
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5957314254777138906}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2634021901116189907
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5957314254777138906}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d358211ec85caa44a282a779c43f8c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SFXManager
+  UIClick:
+  - {fileID: 8300000, guid: d932a14e7121ef2439ef28aa82e4307c, type: 3}
+  MapScribble:
+  - {fileID: 8300000, guid: 29581b6835debe54883fcd3781102728, type: 3}
+  - {fileID: 8300000, guid: 15d41dd51b30d1a448e0375578131ee9, type: 3}
+  - {fileID: 8300000, guid: 6a8cc5d868315e94489e9a8915ff3ab3, type: 3}
+  - {fileID: 8300000, guid: f64285cb1a05c82429ff61746aebfdd6, type: 3}
+  - {fileID: 8300000, guid: 9f310d37b52ac6544af766d7489d4921, type: 3}
+  - {fileID: 8300000, guid: f709219a03404c34f8652cfcbceabae6, type: 3}
+  MapPage:
+  - {fileID: 8300000, guid: 98743928693805c429bf2a97ae97b5db, type: 3}
+  - {fileID: 8300000, guid: d6eb36c79ba74414e9baf692cf1e11b6, type: 3}
+  - {fileID: 8300000, guid: 66a67e6fd0d68014bab600b95296e4bd, type: 3}
+  - {fileID: 8300000, guid: 1bb4c9af0ce6491448a9e33c9360b7e3, type: 3}
+  - {fileID: 8300000, guid: e8f610a62faaf95468d057532c814c68, type: 3}
+  - {fileID: 8300000, guid: c1c1a43669397bb48b9db1b65bcb3b68, type: 3}
+  - {fileID: 8300000, guid: 1cf9ef7a46a09654fbfc33ef04e62f26, type: 3}
+  PlayerAttack:
+  - {fileID: 8300000, guid: 994799715477758449858cdf34e97821, type: 3}
+  CardFlush:
+  - {fileID: 8300000, guid: 1eb81d3fdd6fd234d832ed0589230642, type: 3}
+  - {fileID: 8300000, guid: 86e58d41756eebd4cb7d9263d74cc4f0, type: 3}
+  PlayerDeath:
+  - {fileID: 8300000, guid: ead1200bf960efe4085872f45143c491, type: 3}
+  EnemyAttack:
+  - {fileID: 8300000, guid: 3066a7e4fb2b9c24d9505fbe49531203, type: 3}
+  - {fileID: 8300000, guid: 74bc128d84d585546a82d2cfdd6e5e4b, type: 3}
+  - {fileID: 8300000, guid: 84192e5106d75b340be2159de1fca1eb, type: 3}
+  EnemyDeath:
+  - {fileID: 8300000, guid: bdca6690fe0900d44b6f4b0530db9a40, type: 3}
