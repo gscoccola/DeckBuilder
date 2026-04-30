@@ -22,8 +22,8 @@ public class EnemyCharacter : Singleton<EnemyCharacter>
     {
         CharacterAnimator = GetComponent<CharacterAnimator>();
         Health = GetComponent<Health>();
-        _entityStats = CurrentLevelInfo.Instance.CurrentLevelInfoSO.EnemyStats;
-        CharacterAnimator.Animator.runtimeAnimatorController = CurrentLevelInfo.Instance.CurrentLevelInfoSO.EnemyAnimator;
+        _entityStats = PersistentInfo.Instance.CurrentLevelSO.EnemyStats;
+        CharacterAnimator.Animator.runtimeAnimatorController = PersistentInfo.Instance.CurrentLevelSO.EnemyAnimator;
         Health.Initialize(_entityStats);
         Health.OnDeath.AddListener(OnDeath);
         DisplayIntent();

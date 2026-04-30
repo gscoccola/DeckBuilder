@@ -1,5 +1,6 @@
 using DG.Tweening;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 
@@ -13,6 +14,8 @@ public class CardDraggable : MonoBehaviour, IPointerDownHandler, IPointerUpHandl
     [ReadOnly] public CardInstance CardInstance;
     [ReadOnly] public CardDisplay AssignedDisplay;
     public DisplayType DisplayType;
+
+    [HideInInspector] public UnityEvent OnRewardClicked = new();
 
     private void Awake()
     {
@@ -29,7 +32,7 @@ public class CardDraggable : MonoBehaviour, IPointerDownHandler, IPointerUpHandl
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        if (DisplayType == DisplayType.CardChoice) UpgradeScreen.Instance.ChooseCard(CardInstance.CardSO);
+        if (DisplayType == DisplayType.CardChoice) OnRewardClicked?.Invoke();
         else if (DisplayType == DisplayType.Hand) AssignedDisplay.SetOrder(50);
     }
 

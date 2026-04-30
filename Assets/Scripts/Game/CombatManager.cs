@@ -1,4 +1,3 @@
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class CombatManager : Singleton<CombatManager>
@@ -12,7 +11,7 @@ public class CombatManager : Singleton<CombatManager>
     private void Start()
     {
         SetupCharacters();
-        
+        StartCombat();
     }
 
     private void SetupCharacters()
@@ -39,8 +38,15 @@ public class CombatManager : Singleton<CombatManager>
     {
         if (hasWon)
         {
-            PlayerPrefs.SetInt("CompletedLevel" + CurrentLevelInfo.Instance.CurrentLevelIndex, 1);
+            UpgradeScreen.Instance.DisplayRewards(PersistentInfo.Instance.CurrentLevelSO.Rewards, PersistentInfo.Instance.CurrentLevelIndex);
+            UpgradeScreen.Instance.OnRewardChosen.AddListener(() => LoadMap());
+            PersistentInfo.Instance.OnLevelWon();
         }
+        else LoadMap();
+    }
+
+    private void LoadMap()
+    {
         LevelLoader.Instance.LoadLevel("Map");
     }
 }

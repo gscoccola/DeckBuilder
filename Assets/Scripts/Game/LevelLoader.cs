@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class LevelLoader : PersistentSingleton<LevelLoader>
 {
     private Image _fadeImage;
+    [SerializeField] private float _fadeTime;
     protected override void Awake()
     {
         base.Awake();
@@ -34,7 +35,7 @@ public class LevelLoader : PersistentSingleton<LevelLoader>
 
         _fadeImage.gameObject.SetActive(true);
         _fadeImage.color = new Color(0, 0, 0, 0);
-        float fadeDuration = 1f;
+        float fadeDuration = _fadeTime;
         float elapsedTime = 0f;
         while (elapsedTime < fadeDuration)
         {

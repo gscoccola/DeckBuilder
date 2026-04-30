@@ -6,4 +6,5 @@ public class LevelInfoSO : ScriptableObject
     public Sprite BackgroundSprite;
     public RuntimeAnimatorController EnemyAnimator;
     public EntityStatsSO EnemyStats;
+    public Reward[] Rewards;
 }

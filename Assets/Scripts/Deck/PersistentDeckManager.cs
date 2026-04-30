@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 public class PersistentDeckManager : PersistentSingleton<PersistentDeckManager>
 {
-    [SerializeField] private CardSO[] _starterCards;
+    [SerializeField] private List<CardSO> _starterCards;
     [SerializeField][ReadOnly] private List<CardSO> _deck;
 
     protected override void Awake()
@@ -17,6 +17,12 @@ public class PersistentDeckManager : PersistentSingleton<PersistentDeckManager>
         return _deck;
     }
 
+    public void UpdateDeck()
+    {
+        _deck = RewardApplier.ApplyRewards(PersistentInfo.Instance.ChosenRewards, _starterCards);
+    }
+
+    /*
     #region PERSISTENT ALTERATIONS
     public void AddCard(CardSO card)
     {
@@ -27,5 +33,5 @@ public class PersistentDeckManager : PersistentSingleton<PersistentDeckManager>
     {
         _deck.Remove(card);
     }
-    #endregion
+    #endregion*/
 }

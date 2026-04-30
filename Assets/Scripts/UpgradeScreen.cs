@@ -1,38 +1,41 @@
 using System;
 using UnityEngine;
+using UnityEngine.Events;
+using TMPro;
 
 public class UpgradeScreen : Singleton<UpgradeScreen>
 {
-    [SerializeField] private CardSO[] _cards;
-    [SerializeField] private CardSO[] _cardsToReplace;
     [SerializeField] private CardDisplay[] _displays;
+    [SerializeField] private TextMeshProUGUI[] _displaysText;
+    [HideInInspector] public UnityEvent OnRewardChosen = new();
 
-    private void Start()
+    public void DisplayRewards(Reward[] rewards, int levelIndex)
     {
         transform.GetChild(0).gameObject.SetActive(true);
-        for (int i = 0; i < _displays.Length; i++)
+        for (int i = 0; i < rewards.Length; i++)
         {
-            _displays[i].Assign(new CardInstance(_cards[i]), DisplayType.CardChoice);
+            CardSO cardToShow = rewards[i].Type == RewardType.Remove 
+                ? rewards[i].RemovedCard : rewards[i].AddedCard;
+
+            _displays[i].Assign(new CardInstance(cardToShow), DisplayType.CardChoice, rewards[i].Type.ToString());
+            int index = i;
+            _displays[i].Draggable.OnRewardClicked.AddListener(() => ChooseCard(index, levelIndex));
         }
     }
 
-    public void ChooseCard(CardSO card)
+    public void ChooseCard(int rewardIndex, int levelIndex)
     {
-        int index = Array.IndexOf(_cards, card);
 
         SFXManager.Instance.PlaySFX(SFXManager.Instance.UIClick, false, 1.3f);
-        PersistentDeckManager.Instance.AddCard(_cards[index]);
-        PersistentDeckManager.Instance.RemoveCard(_cardsToReplace[index]);
-        /*CombatDeckManager.Instance.AddCard(new CardInstance(_cards[index]));
-        CombatDeckManager.Instance.AddCard(new CardInstance(_cardsToReplace[(index + 1) % 3]));
-        CombatDeckManager.Instance.AddCard(new CardInstance(_cardsToReplace[(index + 2) % 3]));*/
+        PersistentInfo.Instance.OnRewardChosen(levelIndex, rewardIndex);
 
         for (int i = 0; i < _displays.Length; i++)
         {
             Destroy(_displays[i]);
+            _displays[i].Draggable.OnRewardClicked.RemoveAllListeners();
         }
 
         transform.GetChild(0).gameObject.SetActive(false);
-        CombatManager.Instance.StartCombat();
+        OnRewardChosen?.Invoke();
     }
 }

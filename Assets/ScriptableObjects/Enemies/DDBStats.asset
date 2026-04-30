@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd1806867ff910e4194008c7e2366d07, type: 3}
   m_Name: DDBStats
   m_EditorClassIdentifier: Assembly-CSharp::EntityStatsSO
-  MaxHealth: 75
+  MaxHealth: 1
   InitialBlock: 0
   IntentSequence:
   - DMGAmount: 5

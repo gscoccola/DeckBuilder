@@ -8,6 +8,7 @@ public class CardDisplay : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI _costText;
     [SerializeField] private TextMeshProUGUI _descriptionText;
+    [SerializeField] private TextMeshProUGUI _hoverText;
 
     [SerializeField] private Image _spriteRenderer;
     [SerializeField] private Image _highlight;
@@ -29,7 +30,7 @@ public class CardDisplay : MonoBehaviour
         _boxCollider.enabled = false;
     }
 
-    public void Assign(CardInstance cardInstance, DisplayType displayType = DisplayType.Hand)
+    public void Assign(CardInstance cardInstance, DisplayType displayType = DisplayType.Hand, string hoverText = "")
     {
         if (displayType == DisplayType.Hand) transform.position = CombatDeckManager.Instance.DrawPileLocation.position;
         if (cardInstance == null)
@@ -42,6 +43,7 @@ public class CardDisplay : MonoBehaviour
         CardInstance = cardInstance;
         _costText.text = cardInstance.Stats.Cost.ToString();
         _descriptionText.text = DescriptionGenerator.GenerateDescription(cardInstance.Stats.Effects);
+        _hoverText.text = hoverText;
         _spriteRenderer.sprite = cardInstance.Stats.Sprite;
         _highlight.enabled = cardInstance.Stats.HasHighlight;
         SetLayer(displayType);
@@ -60,6 +62,7 @@ public class CardDisplay : MonoBehaviour
         CardInstance = null;
         _costText.text = "";
         _descriptionText.text = "";
+        _hoverText.text = "";
         _spriteRenderer.sprite = null;
         Draggable.CardInstance = null;
         _highlight.enabled = false;

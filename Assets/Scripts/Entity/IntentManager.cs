@@ -30,7 +30,7 @@ public class IntentManager : MonoBehaviour
         //List<bool> activeDisplays = new List<bool>() { _isUsed[0], _isUsed[1] };
         int activeIndex = 0;
         _displayPool[0].Assign(_attackIcon, intent.DMGAmount, AssignedPos(activeIndex, _isUsed), _isUsed[0]);
-        activeIndex += _isUsed[0].ToInt();
+        activeIndex += BoolExtensions.ToInt(_isUsed[0]);
         _displayPool[1].Assign(_blockIcon, intent.BlockAmount, AssignedPos(activeIndex, _isUsed), _isUsed[1]); 
     }
 

@@ -45,6 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a41923dbb2dba542b4f2f7eeeb33e15, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LevelLoader
+  _fadeTime: 0.3
 --- !u!1 &3403503135794244879
 GameObject:
   m_ObjectHideFlags: 0

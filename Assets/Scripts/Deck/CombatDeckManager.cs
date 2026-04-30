@@ -49,7 +49,7 @@ public class CombatDeckManager : Singleton<CombatDeckManager>
         _drawPile.Shuffle();
         _discardPile = new List<CardInstance>();
         HeadsUpDisplay.Instance.UpdateDeckValues(_drawPile.Count, _discardPile.Count);
-        DeckDisplay.Instance.BuildDisplayPool(_deck.Count);
+        //DeckDisplay.Instance.BuildDisplayPool(_deck.Count);
     }
 
     #endregion

@@ -4,14 +4,19 @@ using System.Linq;
 
 public class DeckDisplay : Singleton<DeckDisplay>
 {
+    [Header ("Parameters")]
+    [SerializeField] private int _rowLenght = 5;
+
+    [Header ("References")]
     [SerializeField] private CardDisplay _cardDisplayPrefab;
     [SerializeField] private GameObject _panel;
-    private List<CardDisplay> _cardDisplays = new List<CardDisplay>();
     [SerializeField] private Transform _layoutGroup;
+    private List<CardDisplay> _cardDisplays = new List<CardDisplay>();
 
     private void Start()
     {
         _panel.SetActive(false);
+        BuildDisplayPool(16);
     }
 
     public void BuildDisplayPool(int count)
@@ -56,9 +61,19 @@ public class DeckDisplay : Singleton<DeckDisplay>
 
     private void Arrange(int activeCount)
     {
+        int rowNumber = 0;
+        int colNumber = 0;
+
         for (int i = 0; i < activeCount; i++)
         {
-            _cardDisplays[i].transform.position = -(activeCount / 2f) * Vector3.right + new Vector3(i * 2.3f, 0f, 0f);
+            
+            if (colNumber == _rowLenght)
+            {
+                rowNumber++;
+                colNumber = 0;
+            }
+            _cardDisplays[i].transform.position = -(2.3f * _rowLenght / 2f) * Vector3.right + new Vector3((colNumber + 0.5f) * 2.3f, 2f - rowNumber * 3f, 0f);
+            colNumber++;
         }
     }
 }

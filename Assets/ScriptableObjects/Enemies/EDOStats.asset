@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd1806867ff910e4194008c7e2366d07, type: 3}
   m_Name: EDOStats
   m_EditorClassIdentifier: Assembly-CSharp::EntityStatsSO
-  MaxHealth: 40
-  InitialBlock: 15
+  MaxHealth: 1
+  InitialBlock: 1
   IntentSequence:
   - DMGAmount: 0
     BlockAmount: 15

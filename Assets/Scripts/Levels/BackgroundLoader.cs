@@ -4,6 +4,6 @@ public class BackgroundLoader : MonoBehaviour
 {
     public void Initialize()
     {
-        GetComponent<SpriteRenderer>().sprite = CurrentLevelInfo.Instance.CurrentLevelInfoSO.BackgroundSprite;
+        GetComponent<SpriteRenderer>().sprite = PersistentInfo.Instance.CurrentLevelSO.BackgroundSprite;
     }
 }
