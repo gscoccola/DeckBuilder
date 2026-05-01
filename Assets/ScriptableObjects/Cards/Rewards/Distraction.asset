@@ -13,10 +13,11 @@ MonoBehaviour:
   m_Name: Distraction
   m_EditorClassIdentifier: Assembly-CSharp::CardSO
   ID: Distraction
+  Name: Distraction
   Stats:
     HasHighlight: 0
     Cost: 1
-    Sprite: {fileID: 2804377989305934148, guid: f67eeef276a533940a45d993898248f4, type: 3}
+    Sprite: {fileID: -6142140681276164617, guid: 470f93c4280f044418c7b2baabb8c78a, type: 3}
     Effects:
     - Type: 2
       Amount: 8

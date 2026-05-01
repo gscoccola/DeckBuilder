@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Dash
   m_EditorClassIdentifier: Assembly-CSharp::CardSO
   ID: Dash
+  Name: Dash
   Stats:
     HasHighlight: 1
     Cost: 1

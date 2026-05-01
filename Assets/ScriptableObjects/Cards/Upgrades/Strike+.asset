@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2251f8c4560541d4a8029685a50b499f, type: 3}
   m_Name: Strike+
   m_EditorClassIdentifier: Assembly-CSharp::CardSO
-  ID: Strike
+  ID: Strike+
+  Name: Strike+
   Stats:
-    Description: Ataca por 22
     HasHighlight: 1
     Cost: 2
     Sprite: {fileID: -6142140681276164617, guid: 470f93c4280f044418c7b2baabb8c78a, type: 3}

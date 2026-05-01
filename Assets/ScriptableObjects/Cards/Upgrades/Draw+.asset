@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: Draw+
   m_EditorClassIdentifier: Assembly-CSharp::CardSO
   ID: Draw+
+  Name: Draw+
   Stats:
-    Description: Roba 3 cartas
     HasHighlight: 1
     Cost: 0
-    Sprite: {fileID: 6283660837935140498, guid: d7c7209c975d52b4aa6439b54dedf25f, type: 3}
+    Sprite: {fileID: -6142140681276164617, guid: 470f93c4280f044418c7b2baabb8c78a, type: 3}
     Effects:
     - Type: 3
       Amount: 3

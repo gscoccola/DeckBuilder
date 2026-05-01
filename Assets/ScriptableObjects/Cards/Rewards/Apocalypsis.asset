@@ -12,11 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2251f8c4560541d4a8029685a50b499f, type: 3}
   m_Name: Apocalypsis
   m_EditorClassIdentifier: Assembly-CSharp::CardSO
-  ID: 
+  ID: Apocalypse
+  Name: Apocalypse
   Stats:
     HasHighlight: 0
     Cost: 2
-    Sprite: {fileID: 883640405, guid: a694a9ba674a2b84eb4aad7966a6f765, type: 3}
+    Sprite: {fileID: -6142140681276164617, guid: 470f93c4280f044418c7b2baabb8c78a, type: 3}
     Effects:
     - Type: 7
       Amount: 10

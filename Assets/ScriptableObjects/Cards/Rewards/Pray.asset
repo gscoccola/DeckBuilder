@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Pray
   m_EditorClassIdentifier: Assembly-CSharp::CardSO
   ID: Pray
+  Name: Pray
   Stats:
     HasHighlight: 1
     Cost: 1

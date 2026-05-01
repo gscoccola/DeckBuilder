@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class CardDisplay : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI _costText;
+    [SerializeField] private TextMeshProUGUI _nameText;
     [SerializeField] private TextMeshProUGUI _descriptionText;
     [SerializeField] private TextMeshProUGUI _hoverText;
 
@@ -42,6 +43,7 @@ public class CardDisplay : MonoBehaviour
         Draggable.DisplayType = displayType;
         CardInstance = cardInstance;
         _costText.text = cardInstance.Stats.Cost.ToString();
+        _nameText.text = cardInstance.CardSO.Name;
         _descriptionText.text = DescriptionGenerator.GenerateDescription(cardInstance.Stats.Effects);
         _hoverText.text = hoverText;
         _spriteRenderer.sprite = cardInstance.Stats.Sprite;
@@ -62,6 +64,7 @@ public class CardDisplay : MonoBehaviour
         CardInstance = null;
         _costText.text = "";
         _descriptionText.text = "";
+        _nameText.text = "";
         _hoverText.text = "";
         _spriteRenderer.sprite = null;
         Draggable.CardInstance = null;

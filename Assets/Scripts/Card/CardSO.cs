@@ -4,6 +4,7 @@ using UnityEngine;
 public class CardSO : ScriptableObject
 {
     public string ID;
+    public string Name;
     public CardStats Stats;
 }
 
@@ -11,7 +12,6 @@ public class CardSO : ScriptableObject
 [System.Serializable]
 public class CardStats
 {
-    [TextArea(3, 10)]
     public bool HasHighlight;
 
     public int Cost;
