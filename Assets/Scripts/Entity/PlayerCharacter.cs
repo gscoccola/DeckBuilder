@@ -1,7 +1,8 @@
-using System;
-using UnityEngine;
-using System.Collections;
 using DG.Tweening;
+using System;
+using System.Collections;
+using Unity.VisualScripting;
+using UnityEngine;
 public class PlayerCharacter : Singleton<PlayerCharacter>
 {
     public int MaxEnergy;
@@ -15,10 +16,13 @@ public class PlayerCharacter : Singleton<PlayerCharacter>
 
     [SerializeField] private SpriteRenderer _sprite;
     [SerializeField] private SpriteRenderer _shadowSprite;
+    [SerializeField] private Canvas _canvas;
+    [HideInInspector] public StatusManager StatusManager;
 
     public void Initialize()
     {
         CharacterAnimator = GetComponent<CharacterAnimator>();
+        StatusManager = GetComponent<StatusManager>();
         Health = GetComponent<Health>();
         Health.Initialize(_entityStats);
         Health.OnDeath.AddListener(OnDeath);
@@ -50,6 +54,7 @@ public class PlayerCharacter : Singleton<PlayerCharacter>
 
     private void OnDeath()
     {
+        _canvas.enabled = false;
         SFXManager.Instance.PlaySFX(SFXManager.Instance.PlayerDeath, false);
         ActionQueue.Instance.IsLevelOver = true;
 

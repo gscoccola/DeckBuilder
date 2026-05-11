@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Obelisco
   m_EditorClassIdentifier: Assembly-CSharp::LevelInfoSO
   BackgroundSprite: {fileID: 8880858589960674628, guid: 95fbb61a1458d214d981f7ac42c9980f, type: 3}
-  EnemyAnimator: {fileID: 9100000, guid: b4975366fde261d45a34277581883185, type: 2}
-  EnemyStats: {fileID: 11400000, guid: f0ff84214ad1a244c85692660fcc0e42, type: 2}
+  EnemyStats:
+  - {fileID: 11400000, guid: f0ff84214ad1a244c85692660fcc0e42, type: 2}
   Rewards:
   - Type: 1
     AddedCard: {fileID: 11400000, guid: 6fdb916f5c8eb90428a49f73643e16ad, type: 2}

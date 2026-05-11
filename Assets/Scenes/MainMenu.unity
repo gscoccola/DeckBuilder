@@ -274,7 +274,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6662596235051221846, guid: c74e29f4662e1a846bc89261e3e60ecd, type: 3}
       propertyPath: m_text
-      value: Creditos
+      value: Credits
       objectReference: {fileID: 0}
     - target: {fileID: 6665723865525889566, guid: c74e29f4662e1a846bc89261e3e60ecd, type: 3}
       propertyPath: m_Name

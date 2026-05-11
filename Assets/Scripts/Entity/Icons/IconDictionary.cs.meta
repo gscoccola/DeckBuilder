@@ -1,0 +1,19 @@
+fileFormatVersion: 2
+guid: e4ee052a01972014897443ba58e95901
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - Strenght: {instanceID: 0}
+  - Vulnerable: {instanceID: 0}
+  - Weak: {instanceID: 0}
+  - Attack: {instanceID: 0}
+  - Block: {instanceID: 0}
+  - Debuff: {instanceID: 0}
+  - Buff: {instanceID: 0}
+  - Spawn: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

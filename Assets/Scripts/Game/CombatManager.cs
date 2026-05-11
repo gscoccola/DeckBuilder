@@ -17,7 +17,7 @@ public class CombatManager : Singleton<CombatManager>
     private void SetupCharacters()
     {
         _playerCharacter.Initialize();
-        _enemyCharacter.Initialize();
+        EnemyManager.Instance.Initialize(PersistentInfo.Instance.CurrentLevelSO.EnemyStats, PersistentInfo.Instance.CurrentLevelSO.EnemyIntentStart);
         _background.Initialize();
     }
 

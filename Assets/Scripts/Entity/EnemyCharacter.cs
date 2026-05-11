@@ -1,31 +1,32 @@
 using DG.Tweening;
-using System;
-using System.Collections;
-using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
-public class EnemyCharacter : Singleton<EnemyCharacter>
+public class EnemyCharacter : MonoBehaviour
 {
     [HideInInspector] public Health Health;
+    [HideInInspector] public StatusManager StatusManager;
     [SerializeField] private EntityStatsSO _entityStats;
     private int _intentIndex;
     [HideInInspector] public CharacterAnimator CharacterAnimator;
 
-    [SerializeField] private IntentManager _intentManager;
+    private IntentManager _intentManager;
 
     private int _strenght;
     [SerializeField] private SpriteRenderer _sprite;
     [SerializeField] private SpriteRenderer _shadowSprite;
+    [SerializeField] private Canvas _canvas;
 
-    public void Initialize()
+    public void Initialize(EntityStatsSO stats, int intentIndex)
     {
         CharacterAnimator = GetComponent<CharacterAnimator>();
+        _intentManager = GetComponent<IntentManager>();
+        StatusManager = GetComponent<StatusManager>();
         Health = GetComponent<Health>();
-        _entityStats = PersistentInfo.Instance.CurrentLevelSO.EnemyStats;
-        CharacterAnimator.Animator.runtimeAnimatorController = PersistentInfo.Instance.CurrentLevelSO.EnemyAnimator;
+        _entityStats = stats;
+        CharacterAnimator.Animator.runtimeAnimatorController = stats.Animator;
         Health.Initialize(_entityStats);
         Health.OnDeath.AddListener(OnDeath);
+        _intentIndex = intentIndex;
         DisplayIntent();
     }
 
@@ -57,8 +58,15 @@ public class EnemyCharacter : Singleton<EnemyCharacter>
 
         CharacterAnimator.PlayAttackAnimation();
         if (intent.DMGAmount > 0 ) PlayerCharacter.Instance.Health.TakeDamage(intent.DMGAmount + _strenght);
+        if (intent.EnemySpawned != null) EnemyManager.Instance.SpawnEnemy(intent.EnemySpawned);
         Health.AddBlock(intent.BlockAmount);
-        _strenght += intent.STRGain;
+
+        if (intent.STRGain  > 0)
+        {
+            StatusManager.ProcessStatus(new Status(StatusType.Strenght, intent.STRGain));
+            _strenght += intent.STRGain;
+        }
+        
         _intentIndex = (_intentIndex + 1) % _entityStats.IntentSequence.Length;
     }
 
@@ -70,34 +78,16 @@ public class EnemyCharacter : Singleton<EnemyCharacter>
 
     private void OnDeath()
     {
-        _intentManager.ClearIntents();
-        ActionQueue.Instance.IsLevelOver = true;
-        StartCoroutine(ILevelOver());
-    }
+        EnemyManager.Instance.OnDeath(this);
+        
+        _intentManager.ClearDisplays();
+        _canvas.enabled = false;
 
-    private IEnumerator ILevelOver()
-    {
         SFXManager.Instance.PlaySFX(SFXManager.Instance.EnemyDeath, false, 0.5f);
         _sprite.DOFade(0, 2f);
         _shadowSprite.DOFade(0, 2f);
         _sprite.transform.DOMove(_sprite.transform.position + new Vector3(0.4f, 0.2f, 0), 2f);
         _shadowSprite.transform.DOMove(_shadowSprite.transform.position + new Vector3(0.4f, 0f, 0), 2f);
-        yield return new WaitForSeconds(2f);
-        CombatManager.Instance.EndCombat(true);
     }
 }
 
-
-[Serializable]
-public class EnemyIntent
-{
-    public int DMGAmount;
-    public int BlockAmount;
-    public int STRGain;
-    public EnemyIntent(int dmgAmount, int blockAmount, int strGain)
-    {
-        DMGAmount = dmgAmount;
-        BlockAmount = blockAmount;
-        STRGain = strGain;
-    }
-}

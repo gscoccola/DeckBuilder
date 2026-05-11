@@ -4,7 +4,7 @@ using UnityEngine;
 public class LevelInfoSO : ScriptableObject
 {
     public Sprite BackgroundSprite;
-    public RuntimeAnimatorController EnemyAnimator;
-    public EntityStatsSO EnemyStats;
+    public EntityStatsSO[] EnemyStats;
+    public int[] EnemyIntentStart;
     public Reward[] Rewards;
 }

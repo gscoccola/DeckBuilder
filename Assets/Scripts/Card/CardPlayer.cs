@@ -71,7 +71,7 @@ public class CardPlayer : Singleton<CardPlayer>
 
         if (effect.Type == EffectType.Damage)
         {
-            EnemyCharacter.Instance.Health.TakeDamage(effect.Amount);
+            EnemyManager.Instance.FrontEnemy().Health.TakeDamage(effect.Amount);
             PlayerCharacter.Instance.CharacterAnimator.PlayAttackAnimation();
             SFXManager.Instance.PlaySFX(SFXManager.Instance.PlayerAttack, true);
         }

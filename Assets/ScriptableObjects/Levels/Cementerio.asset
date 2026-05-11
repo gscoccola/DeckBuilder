@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: Cementerio
   m_EditorClassIdentifier: Assembly-CSharp::LevelInfoSO
   BackgroundSprite: {fileID: 3890088774834427792, guid: 2441aa009e1843f4f85febada4ec43aa, type: 3}
-  EnemyAnimator: {fileID: 9100000, guid: 1dc0659189a48b042b4781229b42f673, type: 2}
-  EnemyStats: {fileID: 11400000, guid: bae5b438684545847914ed9cc39edbe1, type: 2}
+  EnemyStats:
+  - {fileID: 11400000, guid: bae5b438684545847914ed9cc39edbe1, type: 2}
+  - {fileID: 11400000, guid: 5c791559c620cc44d81ae001a135e514, type: 2}
   Rewards:
   - Type: 1
     AddedCard: {fileID: 11400000, guid: 7ca4d3bc8f5c42e499987470e756871f, type: 2}

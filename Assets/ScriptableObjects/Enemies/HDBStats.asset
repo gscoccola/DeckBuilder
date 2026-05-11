@@ -18,3 +18,4 @@ MonoBehaviour:
   - DMGAmount: 1
     BlockAmount: 0
     STRGain: 1
+  Animator: {fileID: 9100000, guid: c18696924d7383a4a8bc5bcc1173553d, type: 2}

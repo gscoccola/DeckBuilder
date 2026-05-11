@@ -18,9 +18,13 @@ MonoBehaviour:
   - DMGAmount: 5
     BlockAmount: 5
     STRGain: 0
+    EnemySpawned: {fileID: 11400000, guid: f0ff84214ad1a244c85692660fcc0e42, type: 2}
   - DMGAmount: 0
     BlockAmount: 10
     STRGain: 0
+    EnemySpawned: {fileID: 11400000, guid: f0ff84214ad1a244c85692660fcc0e42, type: 2}
   - DMGAmount: 8
     BlockAmount: 0
     STRGain: 1
+    EnemySpawned: {fileID: 0}
+  Animator: {fileID: 9100000, guid: 1dc0659189a48b042b4781229b42f673, type: 2}

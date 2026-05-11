@@ -2,7 +2,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 
-public class IntentDisplay : MonoBehaviour
+public class IconDisplay : MonoBehaviour
 {
     //Components
     [SerializeField] private Image Icon;
@@ -26,8 +26,8 @@ public class IntentDisplay : MonoBehaviour
 
     public void Assign(Sprite sprite, int amount, Vector2 newPosition, bool enabled)
     {
-        _newSprite = sprite;
-        _newText = amount.ToString();
+        if (sprite != null) _newSprite = sprite;
+        _newText = amount == 0 ? "" : amount.ToString();
         _newPosition = newPosition;
         _enabled = enabled;
         _canvasGroupUpdate.Switch();
@@ -53,10 +53,3 @@ public class IntentDisplay : MonoBehaviour
     }
 }
 
-public enum IntentDisplayType
-{
-    DMG,
-    Block,
-    Buff,
-    Debuff,
-}

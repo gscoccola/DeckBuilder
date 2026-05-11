@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class TurnManager : Singleton<TurnManager>
 {
@@ -25,8 +26,13 @@ public class TurnManager : Singleton<TurnManager>
         ActionQueue.Instance.IsPlayerTurn = false;
         HandManager.Instance.OnTurnEnd();
         yield return new WaitForSeconds(0.8f);
-        EnemyCharacter.Instance.OnTurnStart();
-        yield return new WaitForSeconds(1.4f);
+        List<EnemyCharacter> enemies = new List<EnemyCharacter>(EnemyManager.Instance.Enemies);
+        enemies.Reverse();
+        foreach (var enemy in enemies)
+        {
+            enemy.OnTurnStart();
+            yield return new WaitForSeconds(1.4f);
+        }
         //EnemyCharacter.Instance.OnTurnEnd();
         PlayerCharacter.Instance.OnTurnStart();
         HandManager.Instance.OnTurnStart();
