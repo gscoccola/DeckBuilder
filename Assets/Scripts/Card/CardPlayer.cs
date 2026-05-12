@@ -75,6 +75,10 @@ public class CardPlayer : Singleton<CardPlayer>
             PlayerCharacter.Instance.CharacterAnimator.PlayAttackAnimation();
             SFXManager.Instance.PlaySFX(SFXManager.Instance.PlayerAttack, true);
         }
+        if (effect.Type == EffectType.ApplyVulnerable)
+        {
+            EnemyManager.Instance.FrontEnemy().StatusManager.ProcessStatus(new Status(StatusType.Vulnerable, effect.Amount));
+        }
         else if (effect.Type == EffectType.Heal)
         {
             PlayerCharacter.Instance.Health.Heal(effect.Amount);

@@ -1,4 +1,5 @@
 using DG.Tweening;
+using System.Linq;
 using UnityEngine;
 
 public class EnemyCharacter : MonoBehaviour
@@ -11,10 +12,11 @@ public class EnemyCharacter : MonoBehaviour
 
     private IntentManager _intentManager;
 
-    private int _strenght;
     [SerializeField] private SpriteRenderer _sprite;
     [SerializeField] private SpriteRenderer _shadowSprite;
     [SerializeField] private Canvas _canvas;
+
+    
 
     public void Initialize(EntityStatsSO stats, int intentIndex)
     {
@@ -57,14 +59,13 @@ public class EnemyCharacter : MonoBehaviour
         }
 
         CharacterAnimator.PlayAttackAnimation();
-        if (intent.DMGAmount > 0 ) PlayerCharacter.Instance.Health.TakeDamage(intent.DMGAmount + _strenght);
+        if (intent.DMGAmount > 0 ) PlayerCharacter.Instance.Health.TakeDamage(intent.DMGAmount + Strenght());
         if (intent.EnemySpawned != null) EnemyManager.Instance.SpawnEnemy(intent.EnemySpawned);
         Health.AddBlock(intent.BlockAmount);
 
         if (intent.STRGain  > 0)
         {
             StatusManager.ProcessStatus(new Status(StatusType.Strenght, intent.STRGain));
-            _strenght += intent.STRGain;
         }
         
         _intentIndex = (_intentIndex + 1) % _entityStats.IntentSequence.Length;
@@ -73,7 +74,7 @@ public class EnemyCharacter : MonoBehaviour
     private void DisplayIntent()
     {
         EnemyIntent intent = _entityStats.IntentSequence[_intentIndex];
-        _intentManager.DisplayIntent(intent);
+        _intentManager.DisplayIntent(intent, Strenght());
     }
 
     private void OnDeath()
@@ -88,6 +89,12 @@ public class EnemyCharacter : MonoBehaviour
         _shadowSprite.DOFade(0, 2f);
         _sprite.transform.DOMove(_sprite.transform.position + new Vector3(0.4f, 0.2f, 0), 2f);
         _shadowSprite.transform.DOMove(_shadowSprite.transform.position + new Vector3(0.4f, 0f, 0), 2f);
+    }
+
+    private int Strenght()
+    {
+        Status status = StatusManager.Statuses.Where(status => status.Type == StatusType.Strenght).SingleOrDefault();
+        return status == null ? 0 : status.Amount;
     }
 }
 

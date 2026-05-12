@@ -25,6 +25,7 @@ public enum EffectType
     ExhaustSelf,
     IncreaseAllDamage,
     AttacksExhaust,
+    ApplyVulnerable,
 }
 
 public static class DescriptionGenerator
@@ -59,6 +60,9 @@ public static class DescriptionGenerator
                     break;
                 case EffectType.AttacksExhaust:
                     description += $"Attacks exhaust when played\n";
+                    break;
+                case EffectType.ApplyVulnerable:
+                    description += $"Apply {effect.Amount} vulnerable\n";
                     break;
             }
         }

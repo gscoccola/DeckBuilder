@@ -5,7 +5,7 @@ public class IntentManager : MonoBehaviour
 {
     [SerializeField] private IconDisplayGroup DisplayGroup;
 
-    public void DisplayIntent(EnemyIntent intent)
+    public void DisplayIntent(EnemyIntent intent, int strenght)
     {
         List<Sprite> sprites = new();
         List<int> amounts = new();
@@ -13,7 +13,7 @@ public class IntentManager : MonoBehaviour
         if (intent.DMGAmount > 0)
         {
             sprites.Add(IconDictionary.Instance.GetIcon(IntentActionType.Attack));
-            amounts.Add(intent.DMGAmount);
+            amounts.Add(intent.DMGAmount + strenght);
         }
         if (intent.BlockAmount > 0)
         {

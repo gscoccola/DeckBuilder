@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd1806867ff910e4194008c7e2366d07, type: 3}
   m_Name: PlayerStats
   m_EditorClassIdentifier: Assembly-CSharp::EntityStatsSO
-  MaxHealth: 10
+  MaxHealth: 25
   InitialBlock: 0
   IntentSequence: []
+  Animator: {fileID: 0}

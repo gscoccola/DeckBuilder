@@ -3,6 +3,7 @@ using UnityEngine.Events;
 using TMPro;
 using UnityEngine.UI;
 using DG.Tweening;
+using System.Linq;
 
 public class Health : MonoBehaviour
 {
@@ -18,9 +19,11 @@ public class Health : MonoBehaviour
 
     private Color _color;
     private Image _hpSliderFill;
+    private StatusManager _statusManager;
 
     public void Initialize(EntityStatsSO Stats)
     {
+        _statusManager = GetComponent<StatusManager>();
         _hpSliderFill = _hpSlider.fillRect.GetComponent<Image>();
         _color = _hpSliderFill.color;
         MaxHealth = Stats.MaxHealth;
@@ -31,6 +34,7 @@ public class Health : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
+        if (IsVulnerable()) damage = (int)Mathf.Floor( 1.5f * damage);
         if (CurrentBlock >= damage)
         {
             CurrentBlock -= damage;
@@ -85,5 +89,11 @@ public class Health : MonoBehaviour
         _blockText.text = $"{CurrentBlock}";
         if (CurrentBlock > 0) _hpSliderFill.color = new Color(0f, 4f / 254, 114f / 254);
         else _hpSliderFill.color = _color;
+    }
+
+    private bool IsVulnerable()
+    {
+        Status status = _statusManager.Statuses.Where(status => status.Type == StatusType.Vulnerable).SingleOrDefault();
+        return status != null && status.Amount>0;
     }
 }

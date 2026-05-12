@@ -25,6 +25,8 @@ public class IconDictionary : Singleton<IconDictionary>
         _statusSprites = new Dictionary<StatusType, Sprite>() 
         {
             [StatusType.Strenght] = Strenght,
+            [StatusType.Vulnerable] = Vulnerable,
+            [StatusType.Weak] = Weak,
         };
 
         _intentSprites = new Dictionary<IntentActionType, Sprite>() 
