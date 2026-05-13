@@ -7,4 +7,5 @@ public class EntityStatsSO : ScriptableObject
     public int InitialBlock;
     public EnemyIntent[] IntentSequence;
     public RuntimeAnimatorController Animator;
+    public bool IsMinion;
 }

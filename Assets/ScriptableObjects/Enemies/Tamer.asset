@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fd1806867ff910e4194008c7e2366d07, type: 3}
-  m_Name: DDBStats
+  m_Name: Tamer
   m_EditorClassIdentifier: Assembly-CSharp::EntityStatsSO
-  MaxHealth: 1
+  MaxHealth: 10
   InitialBlock: 0
   IntentSequence:
   - DMGAmount: 5
@@ -23,7 +23,7 @@ MonoBehaviour:
     BlockAmount: 10
     STRGain: 0
     EnemySpawned: {fileID: 11400000, guid: f0ff84214ad1a244c85692660fcc0e42, type: 2}
-  - DMGAmount: 8
+  - DMGAmount: 2
     BlockAmount: 0
     STRGain: 1
     EnemySpawned: {fileID: 0}

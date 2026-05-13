@@ -15,7 +15,7 @@ public class EnemyCharacter : MonoBehaviour
     [SerializeField] private SpriteRenderer _sprite;
     [SerializeField] private SpriteRenderer _shadowSprite;
     [SerializeField] private Canvas _canvas;
-
+    public bool IsMinon => _entityStats.IsMinion;
     
 
     public void Initialize(EntityStatsSO stats, int intentIndex)

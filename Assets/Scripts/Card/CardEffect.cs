@@ -26,6 +26,7 @@ public enum EffectType
     IncreaseAllDamage,
     AttacksExhaust,
     ApplyVulnerable,
+    SwitchEnemies,
 }
 
 public static class DescriptionGenerator
@@ -63,6 +64,9 @@ public static class DescriptionGenerator
                     break;
                 case EffectType.ApplyVulnerable:
                     description += $"Apply {effect.Amount} vulnerable\n";
+                    break;
+                case EffectType.SwitchEnemies:
+                    description += $"Switch the enemies' positions\n";
                     break;
             }
         }

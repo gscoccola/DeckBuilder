@@ -47,9 +47,8 @@ MonoBehaviour:
   _starterCards:
   - {fileID: 11400000, guid: 8cf6741addf66fb4da6c61c0d58e6705, type: 2}
   - {fileID: 11400000, guid: 8cf6741addf66fb4da6c61c0d58e6705, type: 2}
-  - {fileID: 11400000, guid: 8cf6741addf66fb4da6c61c0d58e6705, type: 2}
   - {fileID: 11400000, guid: 27bbc2e4e2ea8b749b25e823400dbf58, type: 2}
   - {fileID: 11400000, guid: 59c33a65afddacc4581a1e60921ae3ef, type: 2}
   - {fileID: 11400000, guid: 59c33a65afddacc4581a1e60921ae3ef, type: 2}
-  - {fileID: 11400000, guid: 59c33a65afddacc4581a1e60921ae3ef, type: 2}
+  - {fileID: 11400000, guid: 8976a2bde816f9e41bbf312375cb035b, type: 2}
   _deck: []

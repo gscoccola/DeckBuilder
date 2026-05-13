@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a99269bc92edaa429e7f246fddcea2f, type: 3}
+  m_Name: Tamer
+  m_EditorClassIdentifier: Assembly-CSharp::LevelInfoSO
+  BackgroundSprite: {fileID: -4026032105654333489, guid: a4b072f98cfa45a48961716f35f9c1a5, type: 3}
+  EnemyStats:
+  - {fileID: 11400000, guid: 7bada8ecc8ba34f488f90be96fd314d3, type: 2}
+  - {fileID: 11400000, guid: 7bada8ecc8ba34f488f90be96fd314d3, type: 2}
+  EnemyIntentStart: 0000000001000000
+  Rewards:
+  - Type: 1
+    AddedCard: {fileID: 11400000, guid: 7ca4d3bc8f5c42e499987470e756871f, type: 2}
+    RemovedCard: {fileID: 11400000, guid: 59c33a65afddacc4581a1e60921ae3ef, type: 2}
+  - Type: 0
+    AddedCard: {fileID: 11400000, guid: f610f471ec8a8a54683a91ecb3e98118, type: 2}
+    RemovedCard: {fileID: 0}
+  - Type: 2
+    AddedCard: {fileID: 0}
+    RemovedCard: {fileID: 11400000, guid: 59c33a65afddacc4581a1e60921ae3ef, type: 2}

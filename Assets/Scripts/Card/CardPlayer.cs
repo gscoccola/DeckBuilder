@@ -71,12 +71,14 @@ public class CardPlayer : Singleton<CardPlayer>
 
         if (effect.Type == EffectType.Damage)
         {
+            if (EnemyManager.Instance.FrontEnemy() == null) yield break;
             EnemyManager.Instance.FrontEnemy().Health.TakeDamage(effect.Amount);
             PlayerCharacter.Instance.CharacterAnimator.PlayAttackAnimation();
             SFXManager.Instance.PlaySFX(SFXManager.Instance.PlayerAttack, true);
         }
         if (effect.Type == EffectType.ApplyVulnerable)
         {
+            if (EnemyManager.Instance.FrontEnemy() == null) yield break;
             EnemyManager.Instance.FrontEnemy().StatusManager.ProcessStatus(new Status(StatusType.Vulnerable, effect.Amount));
         }
         else if (effect.Type == EffectType.Heal)
@@ -133,6 +135,10 @@ public class CardPlayer : Singleton<CardPlayer>
                 return newEffects.ToArray();
             };
             CombatDeckManager.Instance.ModifyAllCardEffects(attacksExhaust);
+        }
+        else if (effect.Type == EffectType.SwitchEnemies)
+        {
+            EnemyManager.Instance.SwitchEnemies();
         }
         yield return new WaitForSeconds(0.35f);
         OnEffectFinished();
