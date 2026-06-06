@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::LevelInfoSO
   BackgroundSprite: {fileID: -4026032105654333489, guid: a4b072f98cfa45a48961716f35f9c1a5, type: 3}
   EnemyStats:
-  - {fileID: 11400000, guid: 7bada8ecc8ba34f488f90be96fd314d3, type: 2}
-  - {fileID: 11400000, guid: 7bada8ecc8ba34f488f90be96fd314d3, type: 2}
-  EnemyIntentStart: 0000000001000000
+  - {fileID: 11400000, guid: bae5b438684545847914ed9cc39edbe1, type: 2}
+  - {fileID: 11400000, guid: f0ff84214ad1a244c85692660fcc0e42, type: 2}
+  EnemyIntentStart: 0000000000000000
   Rewards:
   - Type: 1
     AddedCard: {fileID: 11400000, guid: 7ca4d3bc8f5c42e499987470e756871f, type: 2}

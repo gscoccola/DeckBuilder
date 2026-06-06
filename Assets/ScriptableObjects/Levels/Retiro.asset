@@ -15,6 +15,7 @@ MonoBehaviour:
   BackgroundSprite: {fileID: -4026032105654333489, guid: a4b072f98cfa45a48961716f35f9c1a5, type: 3}
   EnemyStats:
   - {fileID: 11400000, guid: 5c791559c620cc44d81ae001a135e514, type: 2}
+  EnemyIntentStart: 00000000
   Rewards:
   - Type: 1
     AddedCard: {fileID: 11400000, guid: 98bc4e7616e7cf04b9e39b9d50cbf802, type: 2}

@@ -20,3 +20,4 @@ MonoBehaviour:
     STRGain: 2
     EnemySpawned: {fileID: 0}
   Animator: {fileID: 9100000, guid: b4975366fde261d45a34277581883185, type: 2}
+  IsMinion: 1
